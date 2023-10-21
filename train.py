@@ -80,8 +80,15 @@ def main() -> None:
         )
 
     logger.info("Setting up trainer")
-    trainer = SFTTrainer(
+
+    model = AutoModelForCausalLM.from_pretrained(
         sft_training_args.model_name_or_path,
+        load_in_8bit=sft_training_args.load_in_8bit,
+        device_map="auto"
+    )
+
+    trainer = SFTTrainer(
+        model,
         args=training_args,
         tokenizer=tokenizer,
         train_dataset=train_dataset,

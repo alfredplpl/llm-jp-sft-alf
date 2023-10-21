@@ -43,6 +43,40 @@ python train.py \
     --output_dir results/
 ```
 
+## To make LoRA with 8bit Optimizer
+
+### Requirements
+
+- Ampere GPU (RTX 3090; A100) with 20GB+ or newer 
+- [cuDNN](https://developer.nvidia.com/cudnn): 8.9.4
+- [bitsandbytes](https://huggingface.co/docs/tokenizers/index): 0.41.1
+
+### Installation
+
+Install the necessary packages using `pip`:
+
+```bash
+pip install bitsnandbytes
+```
+### Training
+
+Here is the command to make a LoRA adaptor with 8bit optimizer on the sample dataset.
+
+```bash
+python train.py \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 1 \
+    --learning_rate 1e-5 \
+    --warmup_ratio 0.1 \
+    --lr_scheduler cosine \
+    --data_files data/example.jsonl \
+    --model_name_or_path llm-jp/llm-jp-1.3b-v1.0 \
+    --output_dir results/ \
+    --use_peft \
+    --bf16 \
+    --load_in_8bit
+```
+
 ## To Reproduce LLM-jp Models
 
 ### Development Environment
