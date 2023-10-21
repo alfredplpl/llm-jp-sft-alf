@@ -50,13 +50,14 @@ python train.py \
 - Ampere GPU (RTX 3090; A100) with 20GB+ or newer 
 - [cuDNN](https://developer.nvidia.com/cudnn): 8.9.4
 - [bitsandbytes](https://huggingface.co/docs/tokenizers/index): 0.41.1
+- [scipy](https://scipy.org/): 1.11.3
 
 ### Installation
 
 Install the necessary packages using `pip`:
 
 ```bash
-pip install bitsnandbytes
+pip install scipy bitsnandbytes
 ```
 ### Training
 

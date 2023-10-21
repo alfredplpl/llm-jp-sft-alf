@@ -4,7 +4,7 @@ from typing import Optional
 
 from peft import LoraConfig
 from datasets import disable_caching, load_dataset, concatenate_datasets
-from transformers import AutoTokenizer, TrainingArguments, HfArgumentParser
+from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, HfArgumentParser
 from trl import DataCollatorForCompletionOnlyLM, SFTTrainer
 
 disable_caching()
@@ -23,7 +23,7 @@ class SFTTrainingArguments:
     peft_lora_r: int = 8
     peft_lora_alpha: int = 32
     peft_lora_dropout: float = 0.05
-
+    load_in_8bit: bool = False
 
 def formatting_prompts_func(example):
     output_texts = []
