@@ -57,7 +57,7 @@ python train.py \
 Install the necessary packages using `pip`:
 
 ```bash
-pip install scipy bitsnandbytes
+pip install scipy bitsandbytes
 ```
 ### Training
 
